@@ -3,3 +3,8 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+@layer base {
+  h1 {
+    @apply text-4xl;
+  }
+}
