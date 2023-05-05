@@ -7,11 +7,14 @@ defmodule KeyCombinationWeb.PageLive.Index do
     {:ok, assign(socket, show_cheatsheet: false)}
   end
 
-  def handle_event("open_cheatsheat", %{"ctrlKey" => true, "key" => "k"}, socket) do
-    {:noreply, assign(socket, show_cheatsheet: true)}
-  end
+  def handle_event("open_cheatsheat", %{"ctrlKey" => ctrl_key, "key" => key}, socket) do
+    socket =
+      if String.downcase(key) == "k" && ctrl_key == true do
+        assign(socket, show_cheatsheet: true)
+      else
+        socket
+      end
 
-  def handle_event("open_cheatsheat", _params, socket) do
     {:noreply, socket}
   end
 
