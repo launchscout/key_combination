@@ -24,14 +24,12 @@ defmodule KeyCombinationWeb.PageLive.Index do
       <p class="text-center mt-8">
         Press "Control + k" to view keyboard shortcuts.
       </p>
-      <.modal id="cheatsheet" :if={@show_cheatsheet} show on_cancel={JS.navigate("/")}>
+      <%= if @show_cheatsheet do %>
         <ul>
           <li>Shortcut 1</li>
           <li>Shortcut 2</li>
-          <li>Shortcut 3</li>
-          <li>Shortcut 4</li>
         </ul>
-      </.modal>
+      <% end %>
     </div>
     """
   end
